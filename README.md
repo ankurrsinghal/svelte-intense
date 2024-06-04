@@ -1,58 +1,61 @@
-# create-svelte
+# svelte-intense
 
-Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+[![npm version](https://badge.fury.io/js/svelte-intense.svg)](https://badge.fury.io/js/svelte-intense)
 
-Read more about creating a library [in the docs](https://kit.svelte.dev/docs/packaging).
+This component is a port of [Intense Image Viewer](http://tholman.com/intense-images/) for use with Svelte.
 
-## Creating a project
+[Demo](https://svelte-intense.surge.sh/).
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Usage
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+Simply replace your `<img>` element with a `<SvelteIntense>` component:
 
-# create a new project in my-app
-npm create svelte@latest my-app
+```javascript
+import {SvelteIntense} from 'svelte-intense'
+
+...
+
+<SvelteIntense src='img.jpg' />
 ```
 
-## Developing
+Or for more flexibility, use the provided `useIntenseMaximize` hook:
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+```javascript
+import { useIntenseMaximize } from 'react-intense'
 
-```bash
-npm run dev
+...
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+const { maximize, renderViewer } = useIntenseMaximize(props);
+
+return (
+  <>
+    <button onClick={maximize}>Maximize!</button>
+    {renderViewer()}
+  </>
+);
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+## Optional Props
 
-## Building
+| Name        | Type              | Description                                                           |
+| ----------- | ----------------- | --------------------------------------------------------------------- |
+| `title`     | `string`          | Renders in corner in maximized view.                                  |
+| `caption`   | `string`          | Renders below title in maximized view.                                |
+| `vertical`  | `boolean`         | Images lock to scrolling either horizontally (default) or vertically. |
+| `moveSpeed` | `number`          | How fast to scroll images when following mouse.                       |
+| `loader`    | `React.ReactNode` | The loading spinner to use.                                           |
 
-To build your library:
+## Styling
 
-```bash
-npm run package
-```
+Feel free to use and/or customize the provided styles in `dist/ReactIntense.css`.
 
-To create a production version of your showcase app:
+## Issues
 
-```bash
-npm run build
-```
+If you find any issues with this component, please [report](https://github.com/ankurrsinghal/svelte-intense/issues) them!
 
-You can preview the production build with `npm run preview`.
+## Thanks
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
-
-## Publishing
-
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
-
-To publish your library to [npm](https://www.npmjs.com):
-
-```bash
-npm publish
-```
+- [Bryce Dorn](https://github.com/brycedorn)
+- [Tim Holman](https://github.com/tholman)
+- [Paul Irish](https://gist.github.com/paulirish/1579671)
+- [loading.io](http://loading.io)
