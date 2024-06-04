@@ -18,23 +18,6 @@ import {SvelteIntense} from 'svelte-intense'
 <SvelteIntense src='img.jpg' />
 ```
 
-Or for more flexibility, use the provided `useIntenseMaximize` hook:
-
-```javascript
-import { useIntenseMaximize } from 'react-intense'
-
-...
-
-const { maximize, renderViewer } = useIntenseMaximize(props);
-
-return (
-  <>
-    <button onClick={maximize}>Maximize!</button>
-    {renderViewer()}
-  </>
-);
-```
-
 ## Optional Props
 
 | Name        | Type              | Description                                                           |
