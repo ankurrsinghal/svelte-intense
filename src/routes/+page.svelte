@@ -29,8 +29,10 @@
   ];
 </script>
 
-<div class="gallery">
-  {#each images as image}
-    <SvelteIntense {...image} />
-  {/each}
-</div>
+<section id="demos">
+  <div class="gallery">
+    {#each images as image}
+      <SvelteIntense {...image} />
+    {/each}
+  </div>
+</section>

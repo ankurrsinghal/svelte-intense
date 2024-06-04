@@ -9,6 +9,11 @@ body {
   margin: 0px;
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+footer {
+  margin-top: auto;
 }
 body {
   padding: 20px;
